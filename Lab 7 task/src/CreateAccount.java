@@ -5,37 +5,34 @@ import java.util.*;
 
 
 public class CreateAccount {
+    public CreateAccount(String Username, String email, String password, String type) throws IOException {
+        inputuser(Username,  email,  password,type);
+    }
+
 Scanner sc = new Scanner(System.in);
 Checkmail cm = new Checkmail();
 String FileName = "user.csv";
 
-    void inputuser() throws IOException {
+    void inputuser(String Username, String email, String password, String type) throws IOException {
         Random rand = new Random();
         int n = rand.nextInt(100);
-        String username;
-        String password;
-        String type;
+
+
         String userId;
-        String email;
+
 
         userId = Integer.toString(generateRandom6DigitNumber());
-        System.out.println("Enter userID: "+userId);
+        System.out.println(" userID: "+userId);
 
-        System.out.println("Enter username: ");
-        username = sc.nextLine();
-        System.out.println("Enter email: ");
-        email = sc.nextLine();
+
         if(cm.isEmailExists(this.FileName, email))
         {
             System.out.println("Email already exists");
 
 
         }
-        System.out.println("Enter password: ");
-        password = sc.nextLine();
-        System.out.println("Enter type: ");
-        type = sc.nextLine();
-        writeSingleRowToCSV(FileName,userId,email,username,password,type);
+
+        writeSingleRowToCSV(FileName,userId,email,Username,password,type);
 
 
     }
@@ -43,10 +40,10 @@ String FileName = "user.csv";
 
 
      void writeSingleRowToCSV(String filePath,String userID, String username,String email, String password, String type) throws IOException {
-         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,true))) {
 
              String rowData = userID + "," + username + "," + email + "," + password + "," + type;
-             writer.write(rowData);
+             writer.append(rowData);
              writer.newLine();
 
 

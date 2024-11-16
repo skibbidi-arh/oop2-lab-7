@@ -26,9 +26,6 @@ public class PowerUser extends User {
         System.out.println("ok");
     }
 
-    @Override
-    boolean authenticate() {
-        return false;
-    }
+
 }
 

@@ -13,7 +13,7 @@ public abstract class User {
 
     abstract void setPassword();
 
-    abstract boolean authenticate();
+
 
 
 }

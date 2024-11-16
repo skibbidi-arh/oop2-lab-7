@@ -5,29 +5,24 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class CreateAdmin {
+
+    String FileName = "admin.csv";
     Scanner sc = new Scanner(System.in);
     Checkmail cm = new Checkmail();
-    String FileName = "admin.csv";
 
-    void inputAdmin() throws IOException {
-        String username;
-        String password;
-        String userId;
-        String email;
+    // Constructor
+    public CreateAdmin(String username, String email, String password) throws IOException {
+        inputAdmin(username, email, password);
+    }
 
-        userId = Integer.toString(generateRandom6DigitNumber());
+    void inputAdmin(String username, String email, String password) throws IOException {
+        String userId = Integer.toString(generateRandom6DigitNumber());
         System.out.println("Generated Admin ID: " + userId);
 
-        System.out.println("Enter username: ");
-        username = sc.nextLine();
-        System.out.println("Enter email: ");
-        email = sc.nextLine();
         if (cm.isEmailExists(this.FileName, email)) {
             System.out.println("Email already exists");
             return;
         }
-        System.out.println("Enter password: ");
-        password = sc.nextLine();
 
         writeSingleRowToCSV(FileName, userId, email, username, password);
     }

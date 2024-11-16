@@ -1,6 +1,10 @@
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
-public class RegularUser extends User {
+
+
+public class RegularUser extends User  {
 
     public RegularUser(String Username, String email, String password, String type) throws IOException {
 
@@ -30,8 +34,8 @@ public class RegularUser extends User {
         System.out.println("ok");
     }
 
-    @Override
-    boolean authenticate() {
-        return false;
-    }
+
+
+
+
 }

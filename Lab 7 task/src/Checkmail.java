@@ -20,7 +20,7 @@ public class Checkmail {
                 String[] columns = line.split(",");
 
 
-                if (columns.length > 1 && columns[2].trim().equalsIgnoreCase(email)) {
+                if (columns.length > 1 && columns[1].trim().equalsIgnoreCase(email)) {
                     return true;
                 }
             }

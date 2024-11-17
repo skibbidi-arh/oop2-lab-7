@@ -26,7 +26,7 @@ public class Main {
         userManager.listLoggedInUsers();
 
 
-        userManager.logout(regularUser);
+       // userManager.logout(regularUser);
 
         
         userManager.listLoggedInUsers();
